@@ -2,17 +2,79 @@
     ViewData["Title"] = "Home Page";
 }
 <style>
-    .card{
-        background-color:azure;
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2em;
+        justify-content: space-evenly;
+        justify-items: center;
+        align-content: space-evenly;
+        align-items: center;
+        background-color: #312e81;
+        padding:40px;
+    }
+    /*    large screen*/
+    .card {
+        background-color: darkcyan;
+        box-shadow: 0 3px 10px 0 #aaa;
+        cursor: pointer;
+        height: 280px;
+        position: relative;
+        width: 243px;
+        padding: 15px;
+    }
+    .outer-div{
+        background-color:aqua;
+        padding:45px;
 
     }
+/* Tablet screen*/
+
+@@media (max-width: 768px) {
+    .card {
+        box-shadow: 0 3px 10px 0 #aaa;
+        cursor: pointer;
+        height: 180px;
+        position: relative;
+        width: 180px;
+        padding:15px;
+    }
+    .img {
+        /*        width:90px;*/
+        padding: 5px 5px 5px 5px;
+    }
+}
+
+/* Mobile screen*/
+
+@@media (max-width: 450px) {
+    .card {
+        box-shadow: 0 3px 10px 0 #aaa;
+        cursor: pointer;
+        height: 100px;
+        position: relative;
+        width: 100px;
+        background-image: url("https://images.unsplash.com/photo-1550985543-49bee3167284?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80");
+    }
+    h1.hidden {
+        visibility: hidden;
+    }
+}
 </style>
-<div class="cards">
-    <div class="card">Length</div>
-    <div class="card">Speed</div>
-    <div class="card">Temperature</div>
-    <div class="card">Volume</div>
-    <div class="card">Weight</div>
-    <div class="card">World clock</div>
+<div class="outer-div">
+    <div class="cards">
+
+        <div class="card">
+            <img class=".img" src="https://images.unsplash.com/photo-1550985543-49bee3167284?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"/>
+            <h1 class="hidden">Length</h1>
+        </div>
+        <div class="card">Speed</div>
+        <div class="card">Temperature</div>
+        <div class="card">Volume</div>
+        <div class="card">Weight</div>
+        <div class="card">World clock</div>
+
+    </div>
 </div>
+ 
 
