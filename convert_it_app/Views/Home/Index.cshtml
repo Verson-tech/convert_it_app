@@ -15,7 +15,7 @@
     }
     /*    large screen*/
     .card {
-        background-color: darkcyan;
+        background-color: #f2f2f2;
         box-shadow: 0 3px 10px 0 #aaa;
         cursor: pointer;
         height: 280px;
@@ -54,7 +54,7 @@
         height: 100px;
         position: relative;
         width: 100px;
-        background-image: url("https://images.unsplash.com/photo-1550985543-49bee3167284?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80");
+/*        background-image: url("https://images.unsplash.com/photo-1550985543-49bee3167284?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80");*/
     }
     h1.hidden {
         visibility: hidden;
@@ -63,16 +63,36 @@
 </style>
 <div class="outer-div">
     <div class="cards">
-
+@*length*@
         <div class="card">
-            <img class=".img" src="https://images.unsplash.com/photo-1550985543-49bee3167284?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"/>
+            <img class="img" src="https://images.unsplash.com/photo-1550985543-49bee3167284?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"/>
             <h1 class="hidden">Length</h1>
         </div>
-        <div class="card">Speed</div>
-        <div class="card">Temperature</div>
-        <div class="card">Volume</div>
-        <div class="card">Weight</div>
-        <div class="card">World clock</div>
+@*speed*@
+    <div class="card">
+        <img class="img" src="https://images.unsplash.com/photo-1625484570102-bfdce602b797?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1466&q=80" />
+        <h1 class="hidden">Speed</h1>        
+    </div>
+@*temperature*@
+    <div class="card">
+        <img class="img" src="https://images.unsplash.com/photo-1617713964860-a6ffc37721a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+        <h1 class="hidden">Temperature</h1>
+    </div>
+@*volume*@
+    <div class="card">
+        <img class="img" src="https://images.unsplash.com/photo-1586808307735-14b57f452fff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+        <h1 class="hidden">Volume</h1>
+    </div>
+@*wight*@
+    <div class="card">
+        <img class="img" src="https://images.unsplash.com/photo-1612012060851-20f943c02d3d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80" />
+        <h1 class="hidden">Weight</h1>
+    </div>
+@*World Clock*@
+    <div class="card">
+        <img class="img" src="https://images.unsplash.com/photo-1525562929550-63ef340cfe1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80" />
+        <h1 class="hidden">World Clock</h1>
+    </div>
 
     </div>
 </div>
