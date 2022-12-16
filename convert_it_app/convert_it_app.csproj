@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Views\Length\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Length\" />
+  </ItemGroup>
 </Project>

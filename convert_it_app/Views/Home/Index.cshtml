@@ -2,6 +2,13 @@
     ViewData["Title"] = "Home Page";
 }
 <style>
+    body {
+        background: rgb(206,241,174);
+        background: linear-gradient(90deg, rgba(206,241,174,0.9948354341736695) 6%, rgba(78,255,0,1) 36%, rgba(25,176,198,1) 91%);
+    }
+    h1 {
+        text-align: center;
+    }
     .cards {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -10,23 +17,25 @@
         justify-items: center;
         align-content: space-evenly;
         align-items: center;
-        background-color: #312e81;
-        padding:40px;
+        /*        background-color: #312e81;*/
+        background-image: url('https://images.unsplash.com/photo-1586170737392-383ba61aca98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+        padding: 40px;
     }
     /*    large screen*/
     .card {
-        background-color: #f2f2f2;
+        background: rgb(206,241,174);
+        background: linear-gradient(90deg, rgba(206,241,174,0.9948354341736695) 6%, rgba(78,255,0,1) 36%, rgba(25,176,198,1) 91%);
         box-shadow: 0 3px 10px 0 #aaa;
         cursor: pointer;
-        height: 280px;
+        height: 300px;
         position: relative;
-        width: 243px;
+        width: 300px;
         padding: 15px;
     }
-    .outer-div{
-        background-color:aqua;
-        padding:45px;
-
+    .outer-div {
+/*        background-color: aqua;*/
+        background-image: url('https://images.unsplash.com/photo-1578059456805-cd4809a05d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80');
+        padding: 45px;
     }
 /* Tablet screen*/
 
@@ -51,16 +60,25 @@
     .card {
         box-shadow: 0 3px 10px 0 #aaa;
         cursor: pointer;
-        height: 100px;
+        height: 120px;
         position: relative;
-        width: 100px;
+        width: 120px;
 /*        background-image: url("https://images.unsplash.com/photo-1550985543-49bee3167284?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80");*/
     }
     h1.hidden {
         visibility: hidden;
     }
+    .outer-div {
+        padding: 5px;
+    }
+    .img {
+        padding: 1px 1px 1px 1px;
+    }
 }
 </style>
+
+
+
 <div class="outer-div">
     <div class="cards">
 @*length*@
