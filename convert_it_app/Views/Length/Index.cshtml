@@ -10,7 +10,22 @@
     .main-div {
         background-color: #e2e8f0;
     }
-
+    @@media (max-width: 450px) {
+        .main-div{
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            width: fit-content;
+        }
+        .main-div {
+            /*            width: 450px;*/
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+        }
+        }
 
 
 </style>
