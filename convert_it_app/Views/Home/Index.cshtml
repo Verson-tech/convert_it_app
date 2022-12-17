@@ -82,7 +82,7 @@
 <div class="outer-div">
     <div class="cards">
         @*length*@
-                <div class="card">
+                <div class="card" id="click">
                     <img class="img" src="https://images.unsplash.com/photo-1550985543-49bee3167284?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"/>
                     <h1 class="hidden">Length</h1>
                 </div>
@@ -114,5 +114,10 @@
 
     </div>
 </div>
+<script type="text/javascript">
+    document.getElementById("click").onclick = function () {
+        location.href = "https://localhost:7076/Length";
+    };
+</script>
  
 

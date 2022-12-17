@@ -6,6 +6,8 @@ namespace convert_it_app.Models
 		public LengthClass()
 		{
 		}
+		public int LengthInput { get; set; }
+		public int Operand { get; set; }
 	}
 }
 

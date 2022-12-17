@@ -21,10 +21,14 @@ namespace convert_it_app.Controllers
         // 
         // GET: /Length/Welcome/ 
 
-        public string Welcome()
-        {
-            return "This is the Welcome action method...";
-        }
+
+
+//????????
+        //public int LengthConvertion( int LengthInput, int Operand)           
+        //{
+
+
+        //}
     }
 }
 
