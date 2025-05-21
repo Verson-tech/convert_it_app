@@ -136,7 +136,7 @@
         </div>
 
         <div class="col-6 col-md-3">
-          <a href="#" class="converter-tile distance">
+          <a href="units/miles-km.html" class="converter-tile distance">
             <div class="tile-icon"><i class="fas fa-road"></i></div>
             <div class="tile-text">Miles to Km</div>
           </a>
@@ -210,8 +210,7 @@
       document
         .querySelector(".converter-tile.temp")
         .addEventListener("click", function (e) {
-          // Create the temperature converter file when clicked
-          createTemperatureConverterFile();
+          window.location.href = "units/temperature-converter.html";
         });
     </script>
   </body>

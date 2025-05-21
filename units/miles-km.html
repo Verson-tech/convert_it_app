@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .converter-card {
+        max-width: 400px;
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        background: white;
+        padding: 2rem;
+      }
+
+      .card-title {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #212529;
+      }
+
+      .input-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .form-control {
+        height: 58px;
+        font-size: 1.2rem;
+        border-radius: 12px;
+        padding-right: 40px;
+        border: 2px solid #dee2e6;
+        transition: all 0.3s;
+      }
+
+      .form-control:focus {
+        border-color: #6c757d;
+        box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.1);
+      }
+
+      .unit-indicator {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        color: #adb5bd;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .form-label {
+        font-weight: 600;
+        color: #495057;
+        margin-bottom: 0.5rem;
+      }
+
+      @media (max-width: 576px) {
+        .converter-card {
+          margin: 0 1rem;
+          padding: 1.5rem;
+        }
+
+        .form-control {
+          height: 52px;
+          font-size: 1rem;
+        }
+      }
+
+      .km-input {
+        background-color: #e7f5ff;
+      }
+
+      .miles-input {
+        background-color: #fff9db;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="converter-card mx-auto">
+        <h1 class="card-title text-center">Distnace converter</h1>
+
+        <div class="input-group">
+          <label for="km" class="form-label w-100">Kilometers</label>
+          <input
+            type="number"
+            class="form-control km-input"
+            id="km"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">Km</span>
+        </div>
+
+        <div class="input-group">
+          <label for="miles" class="form-label w-100">Miles</label>
+          <input
+            type="number"
+            class="form-control miles-input"
+            id="miles"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">Miles</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const kmInput = document.getElementById("km");
+        const milesInput = document.getElementById("miles");
+
+        // Convert km to miles
+        kmInput.addEventListener("input", function () {
+          if (kmInput.value === "") {
+            milesInput.value = "";
+            return;
+          }
+
+          const km = parseFloat(km.value);
+          const miles = km / 1.60934;
+
+          // Round to 2 decimal places and avoid -0
+          miles.value = Math.abs(miles) < 0.01 ? 0 : miles.toFixed(2);
+        });
+
+        // Convert Miles to KM
+        milesInput.addEventListener("input", function () {
+          if (milesInput.value === "") {
+            kmInput.value = "";
+            return;
+          }
+
+          const miles = parseFloat(milesInput.value);
+          const km = miles * 1.60934;
+
+          // Round to 2 decimal places and avoid -0
+          kmInput.value = Math.abs(km) < 0.01 ? 0 : km.toFixed(2);
+        });
+      });
+    </script>
+  </body>
+</html>
