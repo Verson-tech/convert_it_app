@@ -1,0 +1,78 @@
+body {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.converter-card {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 2rem;
+}
+
+.card-title {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #212529;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-control {
+  height: 58px;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  padding-right: 40px;
+  border: 2px solid #dee2e6;
+  transition: all 0.3s;
+}
+
+.form-control:focus {
+  border-color: #6c757d;
+  box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.1);
+}
+
+.unit-indicator {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #adb5bd;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 576px) {
+  .converter-card {
+    margin: 0 1rem;
+    padding: 1.5rem;
+  }
+
+  .form-control {
+    height: 52px;
+    font-size: 1rem;
+  }
+}
+
+.celsius-input {
+  background-color: #e7f5ff;
+}
+
+.fahrenheit-input {
+  background-color: #fff9db;
+}
