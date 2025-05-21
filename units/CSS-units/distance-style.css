@@ -69,10 +69,12 @@ body {
   }
 }
 
-.km-input {
+.km-input,
+.feet-input {
   background-color: #e7f5ff;
 }
 
-.miles-input {
+.miles-input,
+.meters-input {
   background-color: #fff9db;
 }
