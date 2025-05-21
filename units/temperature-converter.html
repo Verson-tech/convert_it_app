@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .converter-card {
+        max-width: 400px;
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        background: white;
+        padding: 2rem;
+      }
+
+      .card-title {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #212529;
+      }
+
+      .input-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .form-control {
+        height: 58px;
+        font-size: 1.2rem;
+        border-radius: 12px;
+        padding-right: 40px;
+        border: 2px solid #dee2e6;
+        transition: all 0.3s;
+      }
+
+      .form-control:focus {
+        border-color: #6c757d;
+        box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.1);
+      }
+
+      .unit-indicator {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        color: #adb5bd;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .form-label {
+        font-weight: 600;
+        color: #495057;
+        margin-bottom: 0.5rem;
+      }
+
+      @media (max-width: 576px) {
+        .converter-card {
+          margin: 0 1rem;
+          padding: 1.5rem;
+        }
+
+        .form-control {
+          height: 52px;
+          font-size: 1rem;
+        }
+      }
+
+      .celsius-input {
+        background-color: #e7f5ff;
+      }
+
+      .fahrenheit-input {
+        background-color: #fff9db;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="converter-card mx-auto">
+        <h1 class="card-title text-center">Temperature Converter</h1>
+
+        <div class="input-group">
+          <label for="celsius" class="form-label w-100">Celsius</label>
+          <input
+            type="number"
+            class="form-control celsius-input"
+            id="celsius"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">°C</span>
+        </div>
+
+        <div class="input-group">
+          <label for="fahrenheit" class="form-label w-100">Fahrenheit</label>
+          <input
+            type="number"
+            class="form-control fahrenheit-input"
+            id="fahrenheit"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">°F</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const celsiusInput = document.getElementById("celsius");
+        const fahrenheitInput = document.getElementById("fahrenheit");
+
+        // Convert Celsius to Fahrenheit
+        celsiusInput.addEventListener("input", function () {
+          if (celsiusInput.value === "") {
+            fahrenheitInput.value = "";
+            return;
+          }
+
+          const celsius = parseFloat(celsiusInput.value);
+          const fahrenheit = (celsius * 9) / 5 + 32;
+
+          // Round to 2 decimal places and avoid -0
+          fahrenheitInput.value =
+            Math.abs(fahrenheit) < 0.01 ? 0 : fahrenheit.toFixed(2);
+        });
+
+        // Convert Fahrenheit to Celsius
+        fahrenheitInput.addEventListener("input", function () {
+          if (fahrenheitInput.value === "") {
+            celsiusInput.value = "";
+            return;
+          }
+
+          const fahrenheit = parseFloat(fahrenheitInput.value);
+          const celsius = ((fahrenheit - 32) * 5) / 9;
+
+          // Round to 2 decimal places and avoid -0
+          celsiusInput.value =
+            Math.abs(celsius) < 0.01 ? 0 : celsius.toFixed(2);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -3,158 +3,216 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Temperature Converter</title>
+    <title>Unit Converter</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
     <style>
       body {
         background-color: #f8f9fa;
         min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        padding: 2rem 0;
       }
 
-      .converter-card {
-        max-width: 400px;
-        width: 100%;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        background: white;
-        padding: 2rem;
+      .main-container {
+        max-width: 1000px;
+        margin: 0 auto;
       }
 
       .card-title {
         font-weight: 700;
+        margin-bottom: 2rem;
+        color: #212529;
+        text-align: center;
+      }
+
+      .converter-tile {
+        height: 160px;
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        background: white;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         margin-bottom: 1.5rem;
+        border: none;
+        text-decoration: none;
         color: #212529;
       }
 
-      .input-group {
-        margin-bottom: 1.5rem;
-        position: relative;
+      .converter-tile:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
 
-      .form-control {
-        height: 58px;
-        font-size: 1.2rem;
-        border-radius: 12px;
-        padding-right: 40px;
-        border: 2px solid #dee2e6;
-        transition: all 0.3s;
+      .converter-tile.temp {
+        background-color: #e7f5ff;
+        border-bottom: 4px solid #4dabf7;
       }
 
-      .form-control:focus {
-        border-color: #6c757d;
-        box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.1);
+      .converter-tile.distance {
+        background-color: #f3f0ff;
+        border-bottom: 4px solid #7950f2;
       }
 
-      .unit-indicator {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.2rem;
-        color: #adb5bd;
-        z-index: 10;
-        pointer-events: none;
+      .converter-tile.length {
+        background-color: #fff9db;
+        border-bottom: 4px solid #fcc419;
       }
 
-      .form-label {
+      .converter-tile.volume {
+        background-color: #e6fcf5;
+        border-bottom: 4px solid #20c997;
+      }
+
+      .converter-tile.weight {
+        background-color: #ffeceb;
+        border-bottom: 4px solid #ff6b6b;
+      }
+
+      .converter-tile.cups {
+        background-color: #f4fce3;
+        border-bottom: 4px solid #82c91e;
+      }
+
+      .converter-tile.area {
+        background-color: #f3f0ff;
+        border-bottom: 4px solid #be4bdb;
+      }
+
+      .converter-tile.more {
+        background-color: #edf2ff;
+        border-bottom: 4px solid #4c6ef5;
+      }
+
+      .tile-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .tile-text {
         font-weight: 600;
-        color: #495057;
-        margin-bottom: 0.5rem;
+        text-align: center;
       }
 
       @media (max-width: 576px) {
-        .converter-card {
-          margin: 0 1rem;
-          padding: 1.5rem;
+        body {
+          padding: 1rem 0;
         }
 
-        .form-control {
-          height: 52px;
-          font-size: 1rem;
+        .converter-tile {
+          height: 130px;
         }
-      }
 
-      .celsius-input {
-        background-color: #e7f5ff;
-      }
-
-      .fahrenheit-input {
-        background-color: #fff9db;
+        .tile-icon {
+          font-size: 2rem;
+          margin-bottom: 0.5rem;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="converter-card mx-auto">
-        <h1 class="card-title text-center">Temperature Converter</h1>
+    <div class="container main-container">
+      <h1 class="card-title">Unit Converter</h1>
 
-        <div class="input-group">
-          <label for="celsius" class="form-label w-100">Celsius</label>
-          <input
-            type="number"
-            class="form-control celsius-input"
-            id="celsius"
-            placeholder=""
-            inputmode="decimal"
-          />
-          <span class="unit-indicator">°C</span>
+      <div class="row">
+        <div class="col-6 col-md-3">
+          <a
+            href="units/temperature-converter.html"
+            target="_blank"
+            class="converter-tile temp"
+          >
+            <div class="tile-icon"><i class="fas fa-thermometer-half"></i></div>
+            <div class="tile-text">°F to °C</div>
+          </a>
         </div>
 
-        <div class="input-group">
-          <label for="fahrenheit" class="form-label w-100">Fahrenheit</label>
-          <input
-            type="number"
-            class="form-control fahrenheit-input"
-            id="fahrenheit"
-            placeholder=""
-            inputmode="decimal"
-          />
-          <span class="unit-indicator">°F</span>
+        <div class="col-6 col-md-3">
+          <a href="#" class="converter-tile distance">
+            <div class="tile-icon"><i class="fas fa-road"></i></div>
+            <div class="tile-text">Miles to Km</div>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <a href="#" class="converter-tile length">
+            <div class="tile-icon"><i class="fas fa-ruler-vertical"></i></div>
+            <div class="tile-text">Feet to Meters</div>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <a href="#" class="converter-tile volume">
+            <div class="tile-icon"><i class="fas fa-flask"></i></div>
+            <div class="tile-text">Ounce to Milliliters</div>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <a href="#" class="converter-tile weight">
+            <div class="tile-icon"><i class="fas fa-weight-hanging"></i></div>
+            <div class="tile-text">Kg to Pounds</div>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <a href="#" class="converter-tile cups">
+            <div class="tile-icon"><i class="fas fa-mug-hot"></i></div>
+            <div class="tile-text">Cups to Milliliters</div>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <a href="#" class="converter-tile area">
+            <div class="tile-icon"><i class="fas fa-vector-square"></i></div>
+            <div class="tile-text">Square Meters to Square Feet</div>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <a href="#" class="converter-tile more">
+            <div class="tile-icon"><i class="fas fa-ellipsis-h"></i></div>
+            <div class="tile-text">More...</div>
+          </a>
         </div>
       </div>
     </div>
 
+    <!-- Include the temperature converter page as a standalone HTML file -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const celsiusInput = document.getElementById("celsius");
-        const fahrenheitInput = document.getElementById("fahrenheit");
+      // Create a standalone HTML file for the temperature converter
+      const createTemperatureConverterFile = () => {
+        const tempConverterHTML = ``;
 
-        // Convert Celsius to Fahrenheit
-        celsiusInput.addEventListener("input", function () {
-          if (celsiusInput.value === "") {
-            fahrenheitInput.value = "";
-            return;
-          }
+        // Create a blob with the HTML content
+        const blob = new Blob([tempConverterHTML], { type: "text/html" });
 
-          const celsius = parseFloat(celsiusInput.value);
-          const fahrenheit = (celsius * 9) / 5 + 32;
+        // Create a download link for the temperature converter
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "temperature-converter.html";
 
-          // Round to 2 decimal places and avoid -0
-          fahrenheitInput.value =
-            Math.abs(fahrenheit) < 0.01 ? 0 : fahrenheit.toFixed(2);
+        // Append the link to the document, trigger the download, and remove the link
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
+
+      // Call the function to create the temperature converter file when needed
+      document
+        .querySelector(".converter-tile.temp")
+        .addEventListener("click", function (e) {
+          // Create the temperature converter file when clicked
+          createTemperatureConverterFile();
         });
-
-        // Convert Fahrenheit to Celsius
-        fahrenheitInput.addEventListener("input", function () {
-          if (fahrenheitInput.value === "") {
-            celsiusInput.value = "";
-            return;
-          }
-
-          const fahrenheit = parseFloat(fahrenheitInput.value);
-          const celsius = ((fahrenheit - 32) * 5) / 9;
-
-          // Round to 2 decimal places and avoid -0
-          celsiusInput.value =
-            Math.abs(celsius) < 0.01 ? 0 : celsius.toFixed(2);
-        });
-      });
     </script>
   </body>
 </html>
