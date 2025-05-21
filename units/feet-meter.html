@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="CSS-units/distance-style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="converter-card mx-auto">
+        <h1 class="card-title text-center">Feet to meters</h1>
+
+        <div class="input-group">
+          <label for="feet" class="form-label w-100">Feet</label>
+          <input
+            type="number"
+            class="form-control feet-input"
+            id="feet"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">Feet</span>
+        </div>
+
+        <div class="input-group">
+          <label for="meters" class="form-label w-100">Meters</label>
+          <input
+            type="number"
+            class="form-control meters-input"
+            id="meters"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">Meters</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const feetInput = document.getElementById("feet");
+        const metersInput = document.getElementById("meters");
+
+        // Convert feet to meters
+        feetInput.addEventListener("input", function () {
+          if (feetInput.value === "") {
+            metersInput.value = "";
+            return;
+          }
+
+          const feet = parseFloat(feetInput.value);
+          const meters = feet / 3.281;
+
+          // Round to 2 decimal places and avoid -0
+          metersInput.value = Math.abs(meters) < 0.01 ? 0 : meters.toFixed(2);
+        });
+
+        // Convert meters to feet
+        metersInput.addEventListener("input", function () {
+          if (metersInput.value === "") {
+            feetInput.value = "";
+            return;
+          }
+
+          const meters = parseFloat(metersInput.value);
+          const feet = meters * 3.281;
+
+          // Round to 2 decimal places and avoid -0
+          feetInput.value = Math.abs(feet) < 0.01 ? 0 : feet.toFixed(2);
+        });
+      });
+    </script>
+    <script>
+      // Dynamically load the back button
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../components/back-button.html")
+          .then((response) => response.text())
+          .then((html) => {
+            const container = document.createElement("div");
+            container.innerHTML = html;
+            document.body.appendChild(container);
+          })
+          .catch((error) => console.error("Error loading back button:", error));
+      });
+    </script>
+  </body>
+</html>
