@@ -132,11 +132,11 @@
             return;
           }
 
-          const km = parseFloat(km.value);
+          const km = parseFloat(kmInput.value);
           const miles = km / 1.60934;
 
           // Round to 2 decimal places and avoid -0
-          miles.value = Math.abs(miles) < 0.01 ? 0 : miles.toFixed(2);
+          milesInput.value = Math.abs(miles) < 0.01 ? 0 : miles.toFixed(2);
         });
 
         // Convert Miles to KM
