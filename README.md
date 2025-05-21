@@ -1,8 +1,6 @@
-//create a description for the project using colorful markdown and a standout link to the application
-
 # UNIT CONVERTER
 
-![Unit Converter](https://verson-tech.github.io/convert_it_app/)
+[click here to go to the website](https://verson-tech.github.io/convert_it_app/)
 
 ![Project Logo](/logo/logo.png)
 
