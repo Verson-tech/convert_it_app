@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="CSS-units/distance-style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="converter-card mx-auto">
+        <h1 class="card-title text-center">Ounce to Milliliters Converter</h1>
+
+        <div class="input-group">
+          <label for="ounce" class="form-label w-100">Ounce</label>
+          <input
+            type="number"
+            class="form-control ounce-input"
+            id="ounce"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">US fluid ounce</span>
+        </div>
+
+        <div class="input-group">
+          <label for="milliliters" class="form-label w-100">Milliliters</label>
+          <input
+            type="number"
+            class="form-control milliliters-input"
+            id="milliliters"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">Milliliters</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const ounceInput = document.getElementById("ounce");
+        const millilitersInput = document.getElementById("milliliters");
+
+        // Convert ounce to milliliters
+        ounceInput.addEventListener("input", function () {
+          if (ounceInput.value === "") {
+            millilitersInput.value = "";
+            return;
+          }
+
+          const ounce = parseFloat(ounceInput.value);
+          const milliliters = ounce * 29.5735;
+
+          // Round to 2 decimal places and avoid -0
+          millilitersInput.value =
+            Math.abs(milliliters) < 0.01 ? 0 : milliliters.toFixed(2);
+        });
+        // Convert milliliters to ounce
+        millilitersInput.addEventListener("input", function () {
+          if (millilitersInput.value === "") {
+            ounceInput.value = "";
+            return;
+          }
+
+          const milliliters = parseFloat(millilitersInput.value);
+          const ounce = milliliters / 29.5735;
+
+          // Round to 2 decimal places and avoid -0
+          ounceInput.value = Math.abs(ounce) < 0.01 ? 0 : ounce.toFixed(2);
+        });
+      });
+    </script>
+    <script>
+      // Dynamically load the back button
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../components/back-button.html")
+          .then((response) => response.text())
+          .then((html) => {
+            const container = document.createElement("div");
+            container.innerHTML = html;
+            document.body.appendChild(container);
+          })
+          .catch((error) => console.error("Error loading back button:", error));
+      });
+    </script>
+  </body>
+</html>
