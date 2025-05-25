@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="CSS-units/distance-style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="converter-card mx-auto">
+        <h1 class="card-title text-center">Kilograms to Pounds Converter</h1>
+
+        <div class="input-group">
+          <label for="kg" class="form-label w-100">Kg</label>
+          <input
+            type="number"
+            class="form-control kg-input"
+            id="kg"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">kg</span>
+        </div>
+
+        <div class="input-group">
+          <label for="pounds" class="form-label w-100">Pounds</label>
+          <input
+            type="number"
+            class="form-control pounds-input"
+            id="pounds"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">Pounds</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const kgInput = document.getElementById("kg");
+        const poundsInput = document.getElementById("pounds");
+
+        // Convert kg to pounds
+        kgInput.addEventListener("input", function () {
+          if (kgInput.value === "") {
+            poundsInput.value = "";
+            return;
+          }
+
+          const kg = parseFloat(kgInput.value);
+          const pounds = kg * 2.205;
+
+          // Round to 2 decimal places and avoid -0
+          poundsInput.value = Math.abs(pounds) < 0.01 ? 0 : pounds.toFixed(2);
+        });
+        // Convert pounds to kg
+        poundsInput.addEventListener("input", function () {
+          if (poundsInput.value === "") {
+            kgInput.value = "";
+            return;
+          }
+
+          const pounds = parseFloat(poundsInput.value);
+          const kg = pounds / 2.205;
+
+          // Round to 2 decimal places and avoid -0
+          kgInput.value = Math.abs(kg) < 0.01 ? 0 : kg.toFixed(2);
+        });
+      });
+    </script>
+    <script>
+      // Dynamically load the back button
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../components/back-button.html")
+          .then((response) => response.text())
+          .then((html) => {
+            const container = document.createElement("div");
+            container.innerHTML = html;
+            document.body.appendChild(container);
+          })
+          .catch((error) => console.error("Error loading back button:", error));
+      });
+    </script>
+  </body>
+</html>

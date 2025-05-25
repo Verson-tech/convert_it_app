@@ -71,12 +71,14 @@ body {
 
 .km-input,
 .feet-input,
-.ounce-input {
+.ounce-input,
+.kg-input {
   background-color: #e7f5ff;
 }
 
 .miles-input,
 .meters-input,
-.milliliters-input {
+.milliliters-input,
+.pounds-input {
   background-color: #fff9db;
 }
