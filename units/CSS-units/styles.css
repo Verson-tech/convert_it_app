@@ -73,7 +73,8 @@ body {
 .km-input,
 .feet-input,
 .ounce-input,
-.kg-input {
+.kg-input,
+.cups-input {
   background-color: #e7f5ff;
 }
 

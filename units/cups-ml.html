@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cups to Milliliters Converter</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="CSS-units/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="converter-card mx-auto">
+        <h1 class="card-title text-center">Cups to Milliliters Converter</h1>
+
+        <div class="input-group">
+          <label for="cups" class="form-label w-100">Cups</label>
+          <input
+            type="number"
+            class="form-control cups-input"
+            id="cups"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">Cups</span>
+        </div>
+
+        <div class="input-group">
+          <label for="milliliters" class="form-label w-100">Milliliters</label>
+          <input
+            type="number"
+            class="form-control milliliters-input"
+            id="milliliters"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">Milliliters</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const cupsInput = document.getElementById("cups");
+        const millilitersInput = document.getElementById("milliliters");
+
+        // Convert cups to milliliters
+        cupsInput.addEventListener("input", function () {
+          if (cupsInput.value === "") {
+            millilitersInput.value = "";
+            return;
+          }
+
+          const cups = parseFloat(cupsInput.value);
+          const milliliters = cups * 236.6;
+          // Round to 2 decimal places and avoid -0
+          millilitersInput.value =
+            Math.abs(milliliters) < 0.01 ? 0 : milliliters.toFixed(2);
+        });
+        // Convert milliliters to cups
+        millilitersInput.addEventListener("input", function () {
+          if (millilitersInput.value === "") {
+            cupsInput.value = "";
+            return;
+          }
+
+          const milliliters = parseFloat(millilitersInput.value);
+          const cups = milliliters / 236.6;
+
+          // Round to 2 decimal places and avoid -0
+          cupsInput.value = Math.abs(cups) < 0.01 ? 0 : cups.toFixed(2);
+        });
+      });
+    </script>
+    <script>
+      // Dynamically load the back button
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../components/back-button.html")
+          .then((response) => response.text())
+          .then((html) => {
+            const container = document.createElement("div");
+            container.innerHTML = html;
+            document.body.appendChild(container);
+          })
+          .catch((error) => console.error("Error loading back button:", error));
+      });
+    </script>
+  </body>
+</html>
