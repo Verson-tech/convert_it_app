@@ -74,7 +74,8 @@ body {
 .feet-input,
 .ounce-input,
 .kg-input,
-.cups-input {
+.cups-input,
+.sqm-input {
   background-color: #e7f5ff;
 }
 
@@ -82,6 +83,7 @@ body {
 .miles-input,
 .meters-input,
 .milliliters-input,
-.pounds-input {
+.pounds-input,
+.sqft-input {
   background-color: #fff9db;
 }

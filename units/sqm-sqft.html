@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M2 to Ft2</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="CSS-units/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="converter-card mx-auto">
+        <h1 class="card-title text-center">M<sup>2</sup> to Ft<sup>2</sup></h1>
+
+        <div class="input-group">
+          <label for="sqm" class="form-label w-100">Square Meters</label>
+          <input
+            type="number"
+            class="form-control sqm-input"
+            id="sqm"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">M<sup>2</sup> </span>
+        </div>
+
+        <div class="input-group">
+          <label for="sqft" class="form-label w-100">Square Feet</label>
+          <input
+            type="number"
+            class="form-control sqft-input"
+            id="sqft"
+            placeholder=""
+            inputmode="decimal"
+          />
+          <span class="unit-indicator">Ft<sup>2</sup></span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sqmInput = document.getElementById("sqm");
+        const sqftInput = document.getElementById("sqft");
+
+        // Convert sqm to sqft
+        sqmInput.addEventListener("input", function () {
+          if (sqmInput.value === "") {
+            sqftInput.value = "";
+            return;
+          }
+
+          const sqm = parseFloat(sqmInput.value);
+          const sqft = sqm * 10.764;
+
+          // Round to 2 decimal places and avoid -0
+          sqftInput.value = Math.abs(sqft) < 0.01 ? 0 : sqft.toFixed(2);
+        });
+
+        // Convert sqft to sqm
+        sqftInput.addEventListener("input", function () {
+          if (sqftInput.value === "") {
+            sqmInput.value = "";
+            return;
+          }
+
+          const sqft = parseFloat(sqftInput.value);
+          const sqm = sqft / 10.764;
+
+          // Round to 2 decimal places and avoid -0
+          sqmInput.value = Math.abs(sqm) < 0.01 ? 0 : sqm.toFixed(2);
+        });
+      });
+    </script>
+    <script>
+      // Dynamically load the back button
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../components/back-button.html")
+          .then((response) => response.text())
+          .then((html) => {
+            const container = document.createElement("div");
+            container.innerHTML = html;
+            document.body.appendChild(container);
+          })
+          .catch((error) => console.error("Error loading back button:", error));
+      });
+    </script>
+  </body>
+</html>
